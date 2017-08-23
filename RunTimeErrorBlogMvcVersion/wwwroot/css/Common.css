@@ -1,0 +1,490 @@
+﻿
+/*                                 *                                                                 */
+/*                                 *                                                                 */
+/*                                **                                                                 */
+/*                              *    *                                                              */
+/*                            *       *                                                              */
+/*        ***********       *  *******  *                                                            */
+/*        *         *     *   *********   *                                                          */
+/*        *         *         *       *                                                              */
+/*        *         *         *       *                                                              */
+/*        *         *         *       *                                                             */
+/*        ***********         *********                                                              */
+/*                                                                                                   */
+/*                                                                                                   */
+/*                                                                                                   */
+/*                                                                                                   */
+/*                                                                                                   */
+/*                                                                                                   */
+/*                                                                                                   */
+
+
+
+/*********************/
+/*#Gobal Style Start*/
+/*******************/
+li {
+    cursor: pointer;
+}
+.body {
+
+    width: 100%;
+    height: 1080px;
+    /*min-height: 1080px;*/
+    /*min-height:600px;*/
+    min-width: 1300px;
+}
+
+body {
+    font-family: "Microsoft YaHei" !important;
+    text-align: center;
+    color: #717171;
+    background-color: #1C2126;
+    /*min-width:1280px;*/
+    min-width: inherit;
+    width: 100%;
+    height: 1080px;
+    /*min-height: 1080px;*/
+    /*min-height:600px;*/
+    min-width: 1300px;
+}
+
+.Banner {
+    height: 60px;
+    /*min-height:54px;*/
+    background-image: url('/image/Banner_Bg1.gif');
+    background-repeat: repeat-x;
+    min-width: 1280px;
+    line-height: 60px;
+    width: inherit;
+    box-shadow: 0px 3px 3px black;
+    /*position:absolute;*/
+    /*z-index:-1;*/
+}
+
+#Login {
+ 
+    min-width: 150px;
+    float: right;
+}
+
+body a {
+    text-decoration: none;
+    color: #717171;
+}
+
+
+.Banner a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.Banner .rightli {
+    float: right;
+    list-style: none;
+    /*margin-top:15px ;*/
+    margin-left: 10PX;
+    /*font-size: 24px;*/
+}
+
+.Banner .leftli {
+    float: left;
+    list-style: none;
+    /*margin-top:15px ;*/
+    margin-left: 20PX;
+    /*font-size: 24px;*/
+}
+
+.ul1 {
+    /*width:600px;*/
+    height: inherit;
+    margin: 0px;
+}
+
+.ul2 {
+    width: 600px;
+    height: inherit;
+} 
+ 
+
+.Banner .ul1 li {
+    /*float: left;*/
+    list-style: none;
+    /*margin: 5pX;*/
+    /*margin-left: 30PX;*/
+    font-size: 1.5em;    
+}
+
+
+.Banner .ul2 li {
+    float: right;
+    list-style: none;
+    /*margin: 10PX;*/
+    /*margin-right: 30PX;*/
+    /*font-size: 24px;*/
+    /*width:200px;*/
+}
+
+.Banner .logo li {
+    float: right;
+    list-style: none;
+    /*margin: 10PX;*/
+    /*margin-right: 30PX;*/
+    font-size: 24px;
+}
+ 
+
+.Bottom {
+    height: 5%;
+    text-align: center;
+    min-height: 54px;
+    position: absolute;
+    min-width: inherit;
+    width: 100%;
+}
+
+.BottomUl {
+    float: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; /* 有了这个就自动居中了 */
+}
+
+.BottomUl li {
+    float: left;
+    list-style: none;
+    margin: 10PX;
+    /*margin-right:100PX;*/
+    float: right;
+    font-size: 24px;
+}
+
+
+
+    
+.LoginLogo {
+    height: 80px;
+    text-align: center;
+    color: black;
+    line-height: 100px;
+}
+
+.LogoBgLeft {
+    width: 60px;
+    height: 60px;
+    background: url(/image/LogoPlanC.png) no-repeat center top;
+    background-size: cover;
+}
+
+
+.LogoBgRight {
+    width: 30px;
+    height: 60px;
+    /*/background:url(/image/logo_Right.png) no-repeat center top;*/
+    background-size: cover;
+}
+
+.LoginInput {
+    height: 42px;
+    text-align: left;
+    background: url(/image/LoginInput.png) no-repeat center top;
+    margin-left: auto;
+    margin-right: auto;
+    width: inherit;
+    color: black;
+    line-height: 22px;
+}
+
+.LoginInput input {
+    outline: none;
+    border: 0px;
+    width: 200px;
+    margin-left: 42px;
+    padding-left: 10px;
+}
+
+.LoginInput input:focus {
+    border: 0px;
+    width: 200px;
+    margin-left: 42px;
+    padding-left: 10px;
+}
+
+.LoginIBut {
+    background: url(/image/LoginBut.png) no-repeat center top;
+    height: 50px;
+    line-height: 40px;
+    text-align: center;
+    width: 220px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+}
+
+.LoginBlock {
+    height: 300px;
+    width: 300px;
+    background: url(/image/loginBg.png) no-repeat center top;
+    z-index: 9999;
+    display: none;
+    border: 1px;
+    border-color: white;
+    margin-top: 8px;
+    position: absolute;
+}
+
+
+.Context {
+    height: 972px;
+    /*MARGIN-RIGHT: auto;
+    MARGIN-LEFT: auto;
+    margin-top: 0px;
+    margin-bottom: auto;*/
+
+
+
+    /*border: solid 2px ; 
+          border-color: gray;
+          z-index:-999;
+          position:absolute;*/
+}
+
+.LoadingDiv {
+    /*margin-right:45%;
+    margin-left:45%;
+    margin-top:45%;
+    margin-bottom:45%;*/
+    height: 300px;
+    width: 400PX;
+    background: url(/image/Loading.gif) no-repeat center top;
+    background-size: contain;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; /* 有了这个就自动居中了 */   
+} 
+
+
+.LoadingDivForSp {
+    /*margin-right:45%;
+    margin-left:45%;
+    margin-top:45%;
+    margin-bottom:45%;*/
+    height: 300px;
+    width: 400PX;
+    background: url(/image/Loading.gif) no-repeat center top;
+    background-size: contain;
+    z-index: -1;
+    /*position:relative; left: 0; top: 0; right: 0; bottom: 0;*/
+    margin: 330px; /* 有了这个就自动居中了 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+   
+/*******************/
+
+/*#Gobal Style end*/
+
+/*******************/
+
+
+
+
+/*******************/
+
+/*#Index Style Strat*/
+
+/*******************/
+ 
+
+.ContextBgShow {
+    height: 960px;
+    width: 100%;
+    background: url(/image/index-bg-1.png) no-repeat center top;
+    background-size: cover;
+    z-index: -1;
+    display: none;
+    position: absolute;
+    /*模糊滤镜样式开始
+    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera 
+    -webkit-filter: blur(10px); /* Chrome, Opera 
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+    /*模糊滤镜样式结束*/
+}
+
+.ContextBgHide {
+    height: 968px;
+    width: 100%;
+    /*filter:progid:DXImageTransform.Microsoft.blur(pixelradius=4,makeshadow=false);*/
+    /*background:url(/image/Context_Bg1.gif) no-repeat center top   ;*/
+    background-size: auto;
+    position: absolute;
+    display: none;
+    z-index: -1;
+}
+
+/*.ContextBg {
+   height:960px;
+   width:100%;
+   display:none;
+   position:absolute;
+     
+}*/
+
+.ContextBg_Index {
+    min-width: 1280px;
+    width: 100%;
+    height: 960px;
+    position: absolute;
+    z-index: -1;
+}
+
+
+ 
+.ContextBut {
+    text-align: center;
+    height: 110px;
+    width: 407px;
+    margin: 18% 20% 20% 20%;
+    background: url(/image/index-Button.png) no-repeat center top;
+    background-size: contain;
+    position: absolute;
+    z-index: 4;
+}
+
+.ContextBut a {
+    font-weight: 700;
+    line-height: 110px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 30px;
+    color: white;
+}
+ 
+
+.Button {
+    background: url(image/index-Button.png) no-repeat center top;
+    width: 400px;
+    height: 150px;
+    margin-top: 20%;
+    margin-right: 60%;
+    margin-left: 10%;
+    margin-bottom: auto;
+    z-index: 3;
+    position: relative;
+}
+
+
+/*******************/
+
+/*#Index Style End*/
+
+/*******************/
+
+/*******************/
+
+/*#SnapShot Style Start*/
+
+/*******************/
+
+.CurrImgDiv {
+    width: 100%;
+    height: 960px;
+    background-size: cover;
+    z-index: -1;
+    /*display: none;*/
+    position: absolute;
+}
+
+.ImgDiv {
+    width: 100%;
+    height: 960px;
+    background-size: cover;
+    z-index: -1;
+    display: none;
+    position: absolute;
+    min-width: 1280px
+    
+    /*模糊滤镜样式开始
+    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera 
+    -webkit-filter: blur(10px); /* Chrome, Opera 
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+    /*模糊滤镜样式结束*/
+}
+ 
+
+
+/*******************/
+
+/*#SnapShot Style end*/
+
+/*******************/
+
+
+
+
+/*******************/
+
+/*#RunTimeLog style Strat*/
+
+/*******************/
+
+.ReadMore { text-align: right; }
+
+.ReadMore:hover { color: black; }
+
+.ContextForDoc {
+    width: 900px;
+    /*position:absolute;*/
+    margin-top: 60px;
+    /*text-align:left;*/
+    /*position:absolute;
+top:0px; bottom:0px;left:0px;right:0px;*/
+    margin-left: 350px;
+}
+
+.ContextForDoc h1 {
+    text-align: left;
+    color: #6D6D6D;
+    margin-top: 0px;
+}
+
+.ContextDoc {
+    width: 900px;
+    text-align: left;
+    min-height: 300px;
+    /*position: absolute;*/
+    MARGIN-RIGHT: auto;
+    background-color: white;
+    box-shadow: 0 1px 3px #000;
+    margin-top: 50px;
+    padding: 20px;
+    
+    color: black;
+}
+
+.Note { color: forestgreen; }
+
+.script { background-color: gainsboro; }
+
+/*******************/
+/*#RunTimeLog Style End*/
+/*******************/ 

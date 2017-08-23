@@ -1,0 +1,81 @@
+﻿
+.LeftSideBanner {
+    height:100%;
+    z-index:9998;
+    width:300px;
+    background-color:white;
+    box-shadow:0px 5px 5px black;
+    position:fixed;
+    font-weight:900;
+    font-size:20px;
+    color:#bcc0bc;
+    left:-300px;
+}
+
+.LeftSideBanner li {
+    width:inherit;
+    /*height:50px;*/
+    text-align:left;
+
+    left:0px;
+    /*padding-left:20px;*/
+    line-height:50px;
+
+} 
+
+.LeftSideBanner ul {
+  list-style:none;
+  padding:0px;
+}
+
+.DocTypeList {
+   height:auto;
+}
+
+    .DocTypeList.Father:hover {
+    background-color:#bcc0bb;
+    }
+    .DocTypeList.Father {
+    padding-left:20px;
+    }
+
+
+   .DocTypeList.Father:hover {
+    background-color:#bcc0bb;
+    color:white;
+    }
+
+    .DocTypeList.Father {
+    padding-left:20px;
+    } 
+
+.SearchBar {
+    height:50px;
+}
+  .DocTypeList.ChildUl {
+    padding-left:0px;
+    } 
+ 
+  
+   .DocTypeList.ChildUl li:hover {
+    background-color:#bcc0bb;
+      color:white;
+    
+    }
+
+   .DocTypeList.ChildUl li {
+    /*background-color:#bcc0bb;*/
+    padding-left:40px;
+    
+    }
+
+#ScrollUp {
+    float:right; 
+    margin-right:10px;
+    position: absolute;
+    right: 10px;
+}
+#ScrollUp:hover {
+    color:black;
+
+} 

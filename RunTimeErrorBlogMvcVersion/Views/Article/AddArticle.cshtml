@@ -1,0 +1,30 @@
+﻿@model Modules.Article
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_BaseLayout";
+}
+ 
+<form  action="/Article/AddArticle"  method="post"> 
+    <div style="text-align: center; width: 100%">
+    <div id="" class="" style="width: 80%; height: 100%; text-align: center; margin-left: auto; margin-right: auto;">
+        <h2>添加文章 </h2> 
+        <input class=""  style ="width: 80%" id ="articletitle" name ="articletitle"   type="text"/>
+        <textarea class=""  style ="width: 80%; height: 800px;"   id ="articlcontent" name ="articlcontent"></textarea>
+        <div style="width: 100%; text-align: center">
+            <input type="submit" id="" value="提交" class="GhostChatingDiglogSendBut"/>
+        </div>
+    </div>  
+    </div> 
+</form> 
+@section Scripts{
+    <script>
+        CKEDITOR.replace('articlcontent');
+        $("body").animate({ "background-color": "#ededef" }, 1000);
+        $(".Banner").animate({ "background-color": "#514747" }, 1000);
+    </script> 
+    } 
+     
+
+
+

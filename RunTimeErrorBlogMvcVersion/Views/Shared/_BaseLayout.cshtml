@@ -1,0 +1,280 @@
+﻿@using Microsoft.ApplicationInsights.AspNetCore
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewData["Title"] - RunTimeErrorBlogMvcVersion</title>
+    <meta charset="utf-8" />
+</head> 
+<body>
+<div class="Banner">
+<div id="MoveingBanner" class="Banner">
+<ul class="ul1">
+    <li class="leftli">
+        <A  onclick="SandJumpUrl('Home')"  href="#">Home</A>
+    </li>
+    <li class="leftli">
+        <A  onclick="SandJumpUrl('Home/RunTimeLog')"  href="#">RunTimeLog</A>
+    </li>
+    <li class="leftli">
+        <A href="#" onclick="SandJumpUrl('Home/SnapShot')" >SnapShot</A>
+    </li>
+    <li class="leftli">
+        <A href="#">AboutMe</A>
+    </li> 
+    <li class="LogoBgRight rightli "></li>
+    <li class="rightli" style="font-weight: 700; color: green">ERROR </li>
+    <li class="rightli"> RunTime </li>
+    <li class="LogoBgLeft rightli"></li>
+    <li class="rightli" id ="Chating">Chating
+        <div id="GhostChatContent" class="GhostChatContent" style="display: none;">
+            <div class="FunctionTapContent">
+                <ul class="FunctionTap">
+                    <li data-Action="GhostChatingContent" style="border-color:green;">会话</li>
+                    <li data-Action="GhostChatContactsList">联系人</li>
+                    <li>暂留</li>
+                    <li>暂留</li>
+                </ul>
+
+            </div>
+            <div id="FunctionTapMidContent" class="FunctionTapMidContent">
+                <div id="GhostChatContactsList" class="GhostChatContactsList" style="display: none;">
+                    <ul class="GhostChatingContentUl">
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">高总</div>
+                                    <div data-type="ContactsListItemInfo" style="font-size: small;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">袁总</div>
+                                    <div data-type="ContactsListItemInfo" style="font-size: small;"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/chenzong.jpg" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">陈总</div>
+                                    <div data-type="ContactsListItemInfo" style="font-size:small;"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">小林</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">鹏宏</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">佳宝</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">测试一下</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">感觉放不下</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">我的天这是什么鬼</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div data-type="ContactsListItem">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">滚动条果然很吊</div>
+                                </div>
+                            </div>
+                        </li> 
+                    </ul>
+                </div>
+                <div id="GhostChatingContent" class="GhostChatingContent">
+                    <ul class="GhostChatingContentUl">
+                        <li class="GhostContactsItemNewMsg">
+                            <div data-type="ContactsListItem" onclick="OpenChatingDialog(this);">
+                                <img src="/image/info.png" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">袁总</div>
+                                    <div data-type="ContactsListItemInfo" style="font-size: small;">Hi.你到哪了</div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="GhostContactsItemNewMsg">
+                            <div data-type="ContactsListItem">
+                                <img src="/image/chenzong.jpg" />
+                                <div class="ContactsListItemInfoContent">
+                                    <div data-type="ContactsListItemInfo">陈总</div>
+                                    <div data-type="ContactsListItemInfo" style="font-size:small;">那先不理他的。</div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="FunctionTapBottomContent" id ="FunctionTapBottomContent">
+                <ul class="FunctionTapBottom" id ="FunctionTapBottom">
+                    <li class="" style="margin-left:25%;color:green; list-style:initial;"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            
+        </div> 
+
+       
+    </li> 
+    <li id="Login" class="rightli">
+        <A href="#">Login</A>
+        <!--<div class="LoginBlock"></div>-->
+    </li>
+    <li class="rightli">
+        <A href="#">Register Acount</A>
+    </li>
+
+</ul>
+<div class="LeftSideBanner">
+    <ul>
+        <li style="font-weight: 800; color: black; padding-left: 20px;">
+            <span >RunTimeERROR</span>
+            <span id="ScrollUp"><<</span>
+        </li>
+        <li class="SearchBar">
+            <div>
+                <div style="float: left; width: 180px; text-align: right">
+                    <input type="text" id="SearchInp"/>
+                </div>
+                <div style="width: 120px; float: right; text-align: left">
+                    <input type="button" id="SearchBut" value="Search"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="DocTypeList">
+        <li >
+            <div class="DocTypeList Father">BrowserSideStuff</div>
+            <ul class=" DocTypeList ChildUl">
+                <li>
+                    JavaScript
+                </li>
+                <li>
+                    Html
+                </li>
+                <li>
+                    Css
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <div class="DocTypeList Father">ServerSideStuff</div>
+            <ul class=" DocTypeList ChildUl">
+                <li>
+                    C#
+                </li>
+                <li>
+                    ArithmeticStuff
+                </li>
+                <li>
+                    HttpRequsting
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+    
+    
+    
+<div id="GhostChatingDiglog_1" class="GhostChatingDiglog" style="display: none;">
+    <div class="GhostChatingDiglogHead">
+        <span class="ChatingObject">袁总</span>
+    </div>
+    <div class="GhostChatingDiglogContent">
+        <div class="GhostChatingMsgBox">
+            <div class="GhostChatingMsgBoxReceived">
+                <div class="ChatingMsgBoxDate">2017-04-26 9:16:43</div>
+                <div class="GhostChatingMsgReceived"> Hi.你到哪了</div>
+            </div>
+        </div>
+        <div class="GhostChatingMsgBox"> 
+            <div class="GhostChatingMsgBoxSend">
+                <div class="ChatingMsgBoxDate">2017-04-26 9:33:52</div>
+                <div class="GhostChatingMsgSend">10.30到</div> 
+            </div>
+        </div>
+                
+    </div>
+    <div class="GhostChatingDiglogInputer">
+        <textarea class="GhostChatingDiglogRichTextBox" id ="editor1"></textarea>
+    </div>
+    <div class="GhostChatingDiglogBtmArea">
+        <input type="button" id="" onclick="ColseChatingDiglog()" value="关闭" class="GhostChatingDiglogCloseBut"/>
+        <input type="button" id="" onclick="SendNewMsg('GhostChatingDiglog_1')" value="发送" class="GhostChatingDiglogSendBut"/>
+    </div>
+</div> 
+<link rel="stylesheet" type="text/css" href="~/Css/Common.css"/>
+<link rel="stylesheet" type="text/css" href="~/Css/Banner.css"/>
+
+<script type="text/javascript" src="~/js/jquery-3.1.1.js"></script>
+
+<script type="text/javascript" src="~/js/jquery-color-master/jquery.color.js"></script>
+    
+<script src="~/GhostChat/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="~/js/Common.js"></script>
+<script type="text/javascript" src="~/js/Banner.js"> </script>
+
+<script type="text/javascript" src="~/GhostChat/js/GhostChat.js"></script>
+<link rel="stylesheet" type="text/css" href="~/GhostChat/Css/GhostChat.css" /> 
+@RenderBody()
+@RenderSection("Scripts", required: false)
+</body>
+</html>
+

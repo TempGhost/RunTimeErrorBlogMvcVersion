@@ -1,0 +1,219 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "SnapShot";
+    Layout = "_BaseLayout";
+}
+
+<div class="body">
+    <div class="Context">
+        <!--<div class="ContextBut">
+            <a>WelComeToMyBlog</a>
+        </div>-->
+
+        <!--<div class="ContextBg2">
+
+        </div>-->
+
+    </div>
+    <div id="MovingBottom" class="Bottom">
+        <div class="Bottom">
+            <ul class="BottomUl">
+                <li>
+                    <A href="#">Design By Ghost</A>
+                </li>
+                <li>
+                    <A href="#">Contact Me</A>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+    var CurrImgCount = 0; // 页面当前加载的图片数量
+    var index = 0;
+    var CurrBannerHeight = 0;
+    var CurrImgHeight = 960;
+    var CurrMouseX = 0;
+    var CurrMouseY = 1;
+    //var CurrScrollLocal = 0;
+    var BgImageArray = [
+        { ShowImg: '../image/Context_Bg1.png', HideImg: "../image/Context_Bg1.1.png" },
+        { ShowImg: '../image/Context_Bg2.png', HideImg: "../image/Context_Bg2.1.png" },
+        { ShowImg: '../image/Context_Bg3.png', HideImg: "../image/Context_Bg3.1.png" },
+        { ShowImg: '../image/Context_Bg4.png', HideImg: "../image/Context_Bg4.1.png" }
+    ];
+
+    $(document).ready(function() {
+        BannerPolling();
+        //CurrBannerHeight = $(".Banner").eq(0).css("height");
+        //$(document).trigger("mousemove");
+        //GetPhoto();
+        Polling();
+        //$(".ContextBg1").click(function (event) {
+        //    $(this).fadeOut("fast");
+        //    $(".ContextBg2").fadeIn("fast");
+        //});
+        //var CurrIndex = 0;
+        //var PassFlag="0";
+        //for (var i = 0; i < BgImageArray.length; i++) {
+        //    $("#ContextBg").append("<div  id = BgImgaeS_"+i+" class = \"ContextBgShow\" style=\"background:url(../image/" + BgImageArray[i] + ".png) no-repeat center top ;\"></div>");
+        //    $("#ContextBg").append("<div   id = BgImgaeH_" + i + " class = \"ContextBgHide\" style=\"background:url(../image/" + BgImageArray[i] + ".1.png) no-repeat center top ;\"></div>");
+        //}
+        //LoopingContextBg(CurrIndex);
+        //function LoopingContextBg(index)
+        //{
+        //    if (PassFlag == "1") {
+        //        setTimeout(function () { LoopingContextBg(CurrIndex) }, 5000);
+        //        return;
+        //    }
+        //        if (index > BgImageArray.length - 1) {
+        //            index = index - BgImageArray.length;
+        //        }
+        //        $("#BgImgaeH_" + index).fadeOut(1000);
+        //        $("#BgImgaeS_" + index).fadeOut(1000);
+
+        //        index++;
+        //        CurrIndex = index;
+        //        if (index > BgImageArray.length - 1) {
+        //            index = index - BgImageArray.length;
+        //        }
+        //        $("#BgImgaeS_" + index).fadeIn(1000, function () {
+        //            //$("#BgImgaeH_" + index).fadeIn(1000);
+        //        });
+
+        //        $(".ContextBut").unbind("mousemove");
+        //        $(".ContextBut").unbind("mouseout");
+        //        $(".ContextBut").mousemove(function () {
+        //            PassFlag = "1";
+        //            $("#BgImgaeS_" + index).fadeOut(1000);
+        //            $("#BgImgaeH_" + index).fadeIn(1000);
+        //        });
+        //        $(".ContextBut").on("mouseout", function () {
+        //            PassFlag = "0";
+        //            $("#BgImgaeH_" + index).fadeOut(1000);
+        //            $("#BgImgaeS_" + index).fadeIn(1000);
+        //        });
+        //        setTimeout(function(){ LoopingContextBg(CurrIndex) }, 5000);
+        //}
+
+    });
+
+
+    function PerImage(ImageUrl, Contian) {
+        var PerImageObj = new Image();
+        PerImageObj.src = ImageUrl;
+        PerImageObj.onerror = function() { alert(1); }
+        $(Contian).append("<div id = \"Loading_" +
+            index +
+            "\" class = \"ImgDiv\"> <Div id=\"LoadingImg\" Class=\"LoadingDiv\"></div></div>");
+        $("#Loading_" + index).slideDown();
+        PerImageObj.onload = function() {
+            $("#Loading_" + index).fadeOut(500, function() { setTimeout(function() { GetPhoto(); }, 5000); });
+        }
+
+    }
+
+    function Polling() {
+        //CurrMouseX = event.screenX;
+        //        CurrScrollLocal = (document.documentElement.scrollTop > 0) ? document.documentElement.scrollTop  //IE mode this mothed return 0
+        //: (document.body.scrollTop > 0) ? document.body.scrollTop : 0;
+        CurrMouseY = CurrScrollLocal * 2.6666; //  work in 360se Mode
+        //console.log('documentElement:' + document.documentElement.scrollTop + "body:" + document.body.scrollTop + "scrollHeight:" + document.body.scrollHeight);//   document.body.scrollTop 
+        var indexT = index != 0 ? index : 1
+        CurrMouseY = CurrMouseY < CurrImgHeight ? CurrImgHeight : CurrMouseY;
+        var tempThing = indexT * CurrImgHeight - (CurrImgHeight / 2); // + parseInt(CurrBannerHeight);
+        //   console.log(CurrMouseY+":"+tempThing);
+        if (CurrMouseY > tempThing) {
+            GetPhoto();
+        }
+        setTimeout(Polling, 1000);
+    }
+
+    function GetPhoto() {
+        if (index < BgImageArray.length) {
+            var CurrImgDivId = "ContextImg_" + index;
+            $(".Context").append("<div  id =" + CurrImgDivId + "></div>"); // style=\"display:none;\"
+            //alert(CurrImgDivId);
+            //    $("#" + CurrImgDivId).append("<div  id = BgImgaeS_" + index + " class = \"ImgDiv\" style=\"background:url(../image/" + BgImageArray[index].ShowImg + ") no-repeat center top ;\"></div>");
+            $("#" + CurrImgDivId).append("<div   id = BgImgaeH_" +
+                index +
+                " class = \"ImgDiv\" style=\"background:url(" +
+                BgImageArray[index].HideImg +
+                ") no-repeat center top ;\"> </div>");
+            //$("#" + CurrImgDivId).animate({ "height": "960px" },
+            //    function () {
+            //        $("#" + CurrImgDivId).slideDown("solw",
+            //            function () {
+            //                $("#BgImgaeH_" + index).fadeTo("solw", 1.0);
+            //            });
+            //    });
+
+            $(".Context").animate({ "height": (index + 1) * 960 + "px" });
+            $("#" + CurrImgDivId).css({ "height": CurrImgHeight + "px", "background-color": "reg" });
+            $("#" + CurrImgDivId).on('mousemove',
+                function() {
+                    //$("#" + CurrImgDivId).addClass("CurrImgDiv");
+                    //$("#" + CurrImgDivId).animate({
+                    //    "filter": "", /* FireFox, Chrome, Opera */
+                    //    "-webkit-filter": "", /* Chrome, Opera */
+                    //    "-moz-filter": "",
+                    //    "-ms-filter": "",
+                    //    "filter": "",
+                    //    "filter": "", /* IE6~IE9 */
+
+                    //});
+                });
+            //$("#" + CurrImgDivId).on('mouseout', function () {
+            //    // $("#" + CurrImgDivId).removeClass('CurrImgDiv');
+            //    $("#" + CurrImgDivId).animate({
+            //        "filter": "url(blur.svg#blur)", /* FireFox, Chrome, Opera */
+            //        "-webkit-filter": " blur(5px)", /* Chrome, Opera */
+            //        "-moz-filter": "blur(5px)",
+            //        "-ms-filter": " blur(5px)",
+            //        "filter": "blur(5px)",
+            //        "filter": "progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false)", /* IE6~IE9 */
+            //    });
+            // });
+            //.slideDown(5000, function () {
+
+            var PerImageObj = new Image();
+            PerImageObj.src = BgImageArray[index].HideImg;
+            PerImageObj.onerror = function() { alert(1); }
+            $("#" + CurrImgDivId).append(" <Div id=\"LoadingImg_" + index + "\" Class=\"LoadingDivForSp\"></div>");
+            //$("#LoadingImg_" + index).slideDown();
+            var CurrIndexX = index;
+            PerImageObj.onload = function() {
+                setTimeout(function() {
+                        $("#LoadingImg_" + CurrIndexX).fadeOut(300,
+                            function() {
+                                $("#BgImgaeH_" + CurrIndexX).fadeTo(3000,
+                                    1.0
+                                    //, function () {
+                                    //});
+                                    //$("#" + CurrImgDivId).slideDown("solw");
+                                    //  }
+                                );
+                            });
+
+                    },
+                    3000);
+
+            }
+
+
+            //$("#BgImgaeH_" + index).fadeTo(3000, 1.0, function () {
+            //    //});
+            //    //$("#" + CurrImgDivId).slideDown("solw");
+            //});
+            index++;
+        } else {
+            return;
+        }
+        }
+    </script>
+}

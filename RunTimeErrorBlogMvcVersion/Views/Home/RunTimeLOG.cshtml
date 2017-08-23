@@ -1,0 +1,133 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_BaseLayout";
+    ViewData["Title"] = "RunTimeLog";
+}
+
+<div class="body">
+    <div id="ContextForDoc" class="ContextForDoc">
+    </div>
+    <div class="Bottom">
+        <ul class="BottomUl">
+            <li>
+                <A href="#">Design By Ghost</A>
+            </li>
+            <li>
+                <A href="#">Contact Me</A>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+
+        var Passage = [];
+        $(document).ready(function() {
+            $.ajax({
+                type: 'Get',
+                url: 'GetArticle',
+                async: false,
+                dataType: 'json',
+                success: function(data) {
+                    Passage = data;
+                },
+                error: function(errorobj) { console.log(errorobj); }
+            });
+
+
+            $("body").animate({ "background-color": "#ededef" }, 1000);
+            $(".Banner").animate({ "background-color": "#514747" }, 1000);
+            BannerPolling();
+            for (var i = 0; i < Passage.length; i++) {
+
+                var temp = Passage[i].articlcontent.replace('<p>', '').replace('</p>', '')
+                    .replace('<font class=\"Note\">', '');
+                if (temp.length > 300) {
+                    var perContent = "";
+                    //if (CountingRow(temp)> 5) {
+
+                    //    perContent = temp.substring(0,
+                    //        function() {
+                    //            var indexOf5;
+                    //            var tempstring;
+                    //            for (var i = 0; i < 5; i++) {
+                    //                tempstring = temp.substring(temp.);
+                    //            }
+
+                    //        });
+                    //} else {
+
+                    //    perContent = temp.substring(0, 300);
+                    //}
+                    $("#ContextForDoc").append(' <div class="ContextDoc" id ="ContextDoc_' +
+                        Passage[i].id +
+                        '">' +
+                        ' <div id="ContextHead"><h1 id="Tile">' +
+                        Passage[i].articletitle +
+                        '</h1>\
+            </div> <div id="PassageShow_' +
+                        Passage[i].id +
+                        '">' +
+                        temp.substring(0, 300) +
+                        '....</div><div class="ReadMore"><a onclick="ReadMore(' +
+                        Passage[i].id +
+                        ')"  class="ReadMore">ReadMore</a></div>\
+                        <div id ="Passage_' +
+                        Passage[i].id +
+                        '" style="display:none">' +
+                        temp +
+                        '</div>\
+                        <div id="PassagePart_' +
+                        Passage[i].id +
+                        '" style="display:none"> ' +
+                        temp.substring(0, 300) +
+                        '</div>\
+                               </div>');
+
+
+                } else {
+                    //  $("#ContextForDoc").append(' 0' + ' <div id="ContextHead"><h1 id="Tile">' + Passage[i].Title + '</h1></div> ' + Passage[i].articlcontent + '</div>');
+                    $("#ContextForDoc").append(' <div class="ContextDoc">' +
+                        ' <div id="ContextHead"><h1 id="Tile">' +
+                        Passage[i].articletitle +
+                        '</h1></div> ' +
+                        temp +
+                        '</div>');
+                }
+
+            }
+        });
+
+        function CountingRow(html) {
+            var row = 0;
+            var temphtml = html;
+            while (temphtml.indexOf("<p>") > -1) {
+                row ++;
+                temphtml = temphtml.substring(temphtml.indexOf("<p>"), temphtml.length);
+            }
+            return row;
+        }
+        
+        //function GetIndexOfNum(html,time){
+        //    for (var i = 0; i < time; i++) {
+        //        if (temphtml.indexOf("<p>") ) {
+                    
+        //        }
+        //    }    
+        //}
+
+        function ReadMore(id) {
+            $("#PassageShow_" + id).html($("#Passage_" + id).html());
+            $("#ContextDoc_" + id).find("a").html("Scroll Up!").attr("onclick", "ScrollUp(" + id + ")");
+        }
+
+        function ScrollUp(id) {
+            $("#PassageShow_" + id).html($("#PassagePart_" + id).html());
+            $("#ContextDoc_" + id).find("a").html("ReadMroe").attr("onclick", "ReadMore(" + id + ")");
+        }
+    </script>
+}
