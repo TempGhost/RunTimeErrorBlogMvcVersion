@@ -6,24 +6,25 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters.Internal;
 using Modules;
-using MySqlSugar;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using Newtonsoft.Json;
 
 namespace RunTimeErrorBlogMvcVersion.Controllers{
     public class HomeController : Controller{
         public IActionResult Index(){
-            new Task(() => {
-                try{
+            //new Task(() => {
+            //    try{
                     
-                    using (var db =  RunTimeErrorDb.GetInstance()){
-                        db.Insert(new ViewLog{
-                            ip = "1"
-                        });
-                    }
-                }
-                catch (Exception ex){
-                }
-            }).Start();
+            //        using (var db =  RunTimeErrorDb.GetInstance()){
+            //            db.Insert(new ViewLog{
+            //                ip = "1"
+            //            });
+            //        }
+            //    }
+            //    catch (Exception ex){
+            //    }
+            //}).Start();
             return View();
         }
 
@@ -46,14 +47,7 @@ namespace RunTimeErrorBlogMvcVersion.Controllers{
 
         public IActionResult RunTimeLOG(){ 
             return View();
-        } 
-
-        public JsonResult GetArticle() {  
-        using(var db = RunTimeErrorDb.GetInstance()){
-            var article = db.Queryable<Article>().Where( x=> 1==1).ToList();
-            return Json(article);
-        } 
-    } 
+        }  
 
 public IActionResult SnapShot(){
             return View();
