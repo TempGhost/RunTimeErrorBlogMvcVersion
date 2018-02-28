@@ -29,9 +29,7 @@ namespace RunTimeErrorBlogMvcVersion.Controllers{
         }
 
         public IActionResult About(){
-            ViewData["Message"] = "Your application description page.";
-            var flag = false;
-
+            ViewData["Message"] = "Your application description page.";  
             return View();
         }
 

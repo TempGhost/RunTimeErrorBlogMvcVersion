@@ -24,7 +24,7 @@ namespace RunTimeErrorBlogMvcVersion.Controllers{
             var db = (server.GetDatabase("RunTimeError"));  
             var atrcles = db.GetCollection<Article>("Article");
             var result =  atrcles.Find(x => 1 == 1).ToList();
-            return Json();
+            return Json("111");
             //using(var db = RunTimeErrorDb.GetInstance()){ 6
             //    var article = db.Queryable<Article>().Where( x=> 1==1).ToList();
             //    return Json(article);
