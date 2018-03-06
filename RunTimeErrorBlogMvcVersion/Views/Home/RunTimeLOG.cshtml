@@ -22,9 +22,7 @@
 </div>
 
 @section Scripts{
-    <script>
-
-
+    <script>  
         var Passage = [];
         $(document).ready(function() {
             $.ajax({
@@ -44,7 +42,7 @@
             BannerPolling();
             for (var i = 0; i < Passage.length; i++) {
 
-                var temp = Passage[i].articlcontent.replace('<p>', '').replace('</p>', '')
+                var temp = Passage[i].articlContent.replace('<p>', '').replace('</p>', '')
                     .replace('<font class=\"Note\">', '');
                 if (temp.length > 300) {
                     var perContent = "";
@@ -67,7 +65,7 @@
                         Passage[i].id +
                         '">' +
                         ' <div id="ContextHead"><h1 id="Tile">' +
-                        Passage[i].articletitle +
+                        Passage[i].articleTitle +
                         '</h1>\
             </div> <div id="PassageShow_' +
                         Passage[i].id +
@@ -90,10 +88,10 @@
 
 
                 } else {
-                    //  $("#ContextForDoc").append(' 0' + ' <div id="ContextHead"><h1 id="Tile">' + Passage[i].Title + '</h1></div> ' + Passage[i].articlcontent + '</div>');
+                    //  $("#ContextForDoc").append(' 0' + ' <div id="ContextHead"><h1 id="Tile">' + Passage[i].Title + '</h1></div> ' + Passage[i].articlContent + '</div>');
                     $("#ContextForDoc").append(' <div class="ContextDoc">' +
                         ' <div id="ContextHead"><h1 id="Tile">' +
-                        Passage[i].articletitle +
+                        Passage[i].articleTitle +
                         '</h1></div> ' +
                         temp +
                         '</div>');

@@ -17,8 +17,7 @@ namespace RunTimeErrorBlogMvcVersion
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
-                .Build();
-
+                .Build(); 
             host.Run();
         }
     }

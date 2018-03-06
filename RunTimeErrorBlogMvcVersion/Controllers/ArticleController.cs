@@ -19,12 +19,11 @@ namespace RunTimeErrorBlogMvcVersion.Controllers{
 
         [HttpGet]
         public JsonResult GetArticle(){ 
-            var server = new MongoClient("mongodb://97.64.122.225:27017");
-            server.StartSession();
+            var server = new MongoClient("mongodb://97.64.122.225:27017"); 
             var db = (server.GetDatabase("RunTimeError"));  
             var atrcles = db.GetCollection<Article>("Article");
             var result =  atrcles.Find(x => 1 == 1).ToList();
-            return Json("111");
+            return Json(result);
             //using(var db = RunTimeErrorDb.GetInstance()){ 6
             //    var article = db.Queryable<Article>().Where( x=> 1==1).ToList();
             //    return Json(article);
@@ -38,8 +37,7 @@ namespace RunTimeErrorBlogMvcVersion.Controllers{
             //     { 
             // db.Insert(article); 
             //}  
-            var server = new MongoClient("mongodb://97.64.122.225:27017");
-            server.StartSession();
+            var server = new MongoClient("mongodb://97.64.122.225:27017"); 
             var db = server.GetDatabase("RunTimeError");
             var collection = db.GetCollection<Article>("Article");
             collection.InsertOne(article);
